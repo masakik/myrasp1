@@ -1,0 +1,8 @@
+#disable ipv6 module
+echo -n "disabling ipv6: "
+if grep -q "ipv6" /etc/modprobe.d/fbdev-blacklist.conf; then   
+   echo "already done"
+else
+   echo "blacklist ipv6" >> /etc/modprobe.d/fbdev-blacklist.conf
+   echo "done"
+fi 

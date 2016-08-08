@@ -1,0 +1,18 @@
+# install missing packages
+now=`date +%s`
+apttime=`stat -c %Y /var/cache/apt/`
+
+diff=`expr $now - $apttime`
+
+if [ $diff -gt 1800 ]; then
+  apt-get update
+else
+  echo "skipping update package list"
+fi
+#echo $diff
+pt-get dist-upgrade -y
+apt-get install -y $(cat packages.list)
+apt-get autclean -y
+apt-get autoremove -y
+
+

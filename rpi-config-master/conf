@@ -1,0 +1,37 @@
+#!/bin/bash
+if [ $(uname -n) != 'servidor' ]; then
+  echo "Não é raspberry! Nada a fazer."
+  exit 0;
+fi
+case $1 in
+  bash)
+  echo "configurando bash ..."
+  source bashrc
+  ;;
+esac
+
+if [[ -z $1 ]]; then
+  echo "Uso:"
+  echo "conf bash"
+
+fi
+exit;
+
+source aliases
+rw
+cd copy
+cp autoexec rfs rwfs /root/
+cd ..
+
+source packages
+source bashrc
+source modules
+source networking
+source inittab
+# prevent fsck from running
+#tune2fs -c -1 -i 0 /dev/mmcblk0p2 # /
+
+
+ro
+
+

@@ -1,0 +1,4 @@
+# replace networking file with this one
+echo -n "replace network interfaces file: "
+cp networking.interfaces /etc/network/interfaces
+echo "done"

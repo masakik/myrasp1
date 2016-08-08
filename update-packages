@@ -1,0 +1,2 @@
+#!/bin/bash
+xargs -a <(awk '/^\s*[^#]/' "packages") -r -- apt-get install -y

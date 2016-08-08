@@ -1,0 +1,13 @@
+TARGETS = rsyslog cgmanager triggerhappy motd bootlogs killprocs cgproxy single loadcpufreq cron ntp dbus ssh rsync cpufrequtils rc.local rmnologin
+INTERACTIVE =
+cgproxy: cgmanager
+single: killprocs motd bootlogs
+loadcpufreq: rsyslog
+cron: rsyslog
+ntp: rsyslog
+dbus: rsyslog
+ssh: rsyslog
+rsync: rsyslog
+cpufrequtils: loadcpufreq
+rc.local: rsyslog cgmanager triggerhappy cgproxy motd bootlogs loadcpufreq cron cpufrequtils ntp dbus ssh rsync
+rmnologin: rsyslog cgmanager triggerhappy cgproxy motd bootlogs loadcpufreq cron cpufrequtils ntp dbus ssh rsync

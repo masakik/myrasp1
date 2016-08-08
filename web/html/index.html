@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--   <link rel="icon" href="https://getbootstrap.com/favicon.ico">-->
+
+    <title>Dashboard in Raspberry</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet">
+
+    <link href="vendor/fontello/css/fontello.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="index_arquivos/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]>
+    <!--<&lt;!&ndash;&ndash;&gt;script src="../../assets/js/ie8-responsive-file-warning.js"></script>
+    <![endif]&ndash;&gt;-->
+    <script src="index_arquivos/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .container {
+            width: 450px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .gauge {
+            width: 120px;
+            height: 120px;
+        }
+
+        .gaugediv {
+            display: inline-block;
+        }
+
+        a:link.button,
+        a:active.button,
+        a:visited.button,
+        a:hover.button {
+            margin: 30px 5px 0 2px;
+            padding: 7px 13px;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .cyan {
+            color: cyan;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        .grey {
+            color: lightgrey;
+        }
+
+        .hosts {
+            display: inline-block;
+            padding: 5px;
+        }
+
+        .icon-4x {
+            font-size: 4em;
+        }
+
+        /* Side notes for calling out things
+        -------------------------------------------------- */
+
+        /* Base styles (regardless of theme) */
+        .bs-callout {
+            margin: 20px 0;
+            padding: 15px 30px 15px 15px;
+            border-left: 5px solid #eee;
+        }
+
+        .bs-callout h4 {
+            margin-top: 0;
+        }
+
+        .bs-callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        .bs-callout code,
+        .bs-callout .highlight {
+            background-color: #fff;
+        }
+
+        /* Themes for different contexts */
+        .bs-callout-danger {
+            background-color: #fcf2f2;
+            border-color: #dFb5b4;
+        }
+
+        .bs-callout-warning {
+            background-color: #fefbed;
+            border-color: #f1e7bc;
+        }
+
+        .bs-callout-info {
+            background-color: #f0f7fd;
+            border-color: #d0e3f0;
+        }
+
+        .bs-callout-danger h4 {
+            color: #B94A48;
+        }
+
+        .bs-callout-warning h4 {
+            color: #C09853;
+        }
+
+        .bs-callout-info h4 {
+            color: #3A87AD;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Minha casa</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+            <form class="navbar-form navbar-right">
+                <<!---->input class="form-control" placeholder="Search..." type="text">
+            </form>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Resumo</h2>
+
+            <div class="placeholders">
+                <div id="gg1" class="gauge gaugediv" label="Rasp"></div>
+                <div id="gg2" class="gauge gaugediv" label="Roof"></div>
+                <div id="gg3" class="gauge gaugediv" label="Room"></div>
+                <div id="gg4" class="gauge gaugediv" label="External"></div>
+            </div>
+            <div class="row placeholders">
+                <p>Datetime: <span class="datetime">0</span> |
+                    <a href="#" id="gg1_refresh">Random Refresh</a></p>
+            </div>
+            <hr/>
+            <div class="placeholders">
+                <div class="hosts red" data-toggle="popover" data-placement="bottom" title="Sala"
+                     data-content="And here's some amazing content. It's very engaging. Right?">
+                    <div class="h3">Sala</div>
+                    <i class="icon-database icon-4x" aria-hidden="true"></i>
+                </div>
+                <div class="hosts green" data-toggle="popover" data-placement="bottom" title="Wireless">
+                    <div class="h3">Wireless</div>
+                    <i class="icon-wifi icon-4x" aria-hidden="true"></i>
+                </div>
+                <div class="hosts grey">
+                    <div class="h3">DVR</div>
+                    <i class="icon-videocam icon-4x" aria-hidden="true"></i>
+                </div>
+                <div class="hosts">
+                    <div class="h3">Servidor</div>
+                    <i class="icon-raspberry icon-4x yellow" aria-hidden="true"></i>
+                </div>
+            </div>
+            <hr/>
+            <div class="placeholders">
+                <a class="btn btn-default" role="button" title="Irrigação<br />Irá ligar em 5h37min"
+                   data-toggle="tooltip" data-placement="top">
+                    <i class="icon-watering icon-4x cyan" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-default" role="button" data-toggle="tooltip"
+                   data-placement="top" title="Coletor solar">
+                    <i class="icon-solarpanel icon-4x green" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-default" role="button" data-toggle="tooltip" data-placement="top"
+                   title="Piscina<br />Temperatura: 25C">
+                    <i class="icon-pool icon-4x green" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Detalhamento</h2>
+
+            <div class="bs-callout bs-callout-info">
+                <h4><i class="icon-database" aria-hidden="true"></i> Sala</h4>
+                <dl class="dl-horizontal">
+                    <dt>Uso do disco</dt>
+                    <dd>52%</dd>
+                    <dt>SO</dt>
+                    <dd>Linux Mint XXX</dd>
+                    <dt>Hardware</dt>
+                    <dd>XXXX</dd>
+                    <dt>Atualizações</dt>
+                    <dd>OK</dd>
+                </dl>
+            </div>
+
+            <div class="bs-callout bs-callout-warning">
+                <h4><i class="icon-pool" aria-hidden="true"></i> Piscina</h4>
+                Aquecimento: desligado (uso de 5% nas últimas 24h, 4% na última semana)<br/>
+                Filtragem: desligado (ligar diariamente das 18h às 19h) <br/>
+                Temperatura: XXC<br/>
+                Histórico:<br/>
+
+                Medições: PH: xx; Alcalinidade: yyy; cloro: zzz em dd/mm/yyy (há 3 dias)
+                Histórico:<br/>
+
+            </div>
+            <div class="bs-callout bs-callout-danger">
+                <h4><i class="icon-raspberry" aria-hidden="true"></i>Raspberry</h4>
+
+                <div class="">
+                    Temperatura da CPU: <span class="rasp_temp">0</span>℃<br/>
+                    Uso do disco: <span class="rasp_diskusage">0</span><br/>
+                    Uso da RAM: <span class="rasp_memusage">0</span><br/>
+                    Datetime: <span class="datetime">0</span>
+                </div>
+            </div>
+            <div>
+                <h4><i class="icon-watering" aria-hidden="true"></i>Irrigação</h4>
+
+                <div class="">
+                    Uso: 20 min por dia às 18h<br/>
+                    Humidade do solo: 60%
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="vendor/jquery.js"></script>
+<script src="vendor/justgage-1.2.2/raphael-2.1.4.min.js"></script>
+<script src="vendor/justgage-1.2.2/justgage.js"></script>
+
+<script src="vendor/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<!--<script src="index_arquivos/ie10-viewport-bug-workaround.js"></script>-->
+
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip({'html': true});
+        $('[data-toggle="popover"]').popover()
+    });
+</script>
+
+<script src="js/temperatures.js"></script>
+
+
+</body>
+</html>

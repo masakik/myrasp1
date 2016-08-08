@@ -1,0 +1,33 @@
+/usr/bin/python: can't open file 'app': [Errno 2] No such file or directory
+/usr/bin/python: can't open file 'app': [Errno 2] No such file or directory
+/usr/bin/python: can't open file 'app': [Errno 2] No such file or directory
+/usr/bin/python: can't open file 'app': [Errno 2] No such file or directory
+Bottle v0.12.9 server starting up (using WSGIRefServer())...
+Listening on http://0.0.0.0:8080/
+Hit Ctrl-C to quit.
+
+10.233.30.1 - - [24/Jun/2016 16:10:37] "GET / HTTP/1.1" 404 720
+10.233.30.1 - - [24/Jun/2016 16:10:44] "GET /api HTTP/1.1" 200 13
+10.233.30.1 - - [24/Jun/2016 16:10:47] "GET / HTTP/1.1" 404 720
+10.233.30.1 - - [24/Jun/2016 16:10:57] "GET /index.html HTTP/1.1" 200 35
+10.233.30.1 - - [24/Jun/2016 16:11:01] "GET /hello.html HTTP/1.1" 304 0
+10.233.30.1 - - [24/Jun/2016 16:11:25] "GET /hello.html HTTP/1.1" 304 0
+10.233.30.1 - - [24/Jun/2016 16:11:52] "GET /hello.html HTTP/1.1" 304 0
+Terminating on signal 15
+Bottle v0.12.9 server starting up (using WSGIRefServer())...
+Listening on http://0.0.0.0:8080/
+Hit Ctrl-C to quit.
+
+10.233.30.1 - - [24/Jun/2016 16:12:13] "GET / HTTP/1.1" 200 35
+10.233.30.1 - - [24/Jun/2016 16:12:17] "GET / HTTP/1.1" 304 0
+10.233.30.1 - - [24/Jun/2016 16:12:24] "GET /hello.html HTTP/1.1" 200 20
+10.233.30.1 - - [24/Jun/2016 16:12:26] "GET /hello.html HTTP/1.1" 304 0
+10.233.30.1 - - [24/Jun/2016 16:12:29] "GET /app HTTP/1.1" 200 468
+10.233.30.1 - - [24/Jun/2016 16:12:34] "GET /ap1 HTTP/1.1" 404 723
+10.233.30.1 - - [24/Jun/2016 16:12:37] "GET /api HTTP/1.1" 200 13
+10.233.30.1 - - [24/Jun/2016 16:16:18] "GET /api HTTP/1.1" 200 13
+10.233.30.1 - - [24/Jun/2016 16:16:22] "GET /api HTTP/1.1" 200 13
+10.233.30.1 - - [24/Jun/2016 16:16:23] "GET /api HTTP/1.1" 200 13
+10.233.30.1 - - [24/Jun/2016 16:16:23] "GET /api HTTP/1.1" 200 13
+10.233.30.1 - - [24/Jun/2016 16:16:25] "GET /api HTTP/1.1" 200 13
+Terminating on signal 15

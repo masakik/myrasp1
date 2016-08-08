@@ -1,0 +1,14 @@
+# alias to remount ro or rw
+function ro {
+  echo "filesystem in read-only mode"
+  mount -o remount,ro / ;
+  mount -o remount,ro /boot; 
+  fs_mode=$(mount | sed -n -e "s/^\/dev\/root on \/ .*(\(r[w|o]\).*/\1/p")
+}
+function rw {
+  echo "filesystem in read-write mode"
+  mount -o remount,rw / ;
+  mount -o remount,rw /boot;
+  fs_mode=$(mount | sed -n -e "s/^\/dev\/root on \/ .*(\(r[w|o]\).*/\1/p")
+}
+

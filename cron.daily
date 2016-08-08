@@ -1,0 +1,3 @@
+#!/bin/bash
+# cron para rodar todo dia
+/root/backup

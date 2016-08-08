@@ -1,0 +1,4 @@
+#!/bin/sh
+
+test -x /sbin/fstrim || exit 0
+/sbin/fstrim /

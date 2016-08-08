@@ -1,0 +1,15 @@
+vim
+ntp
+unzip
+rsync
+rpi-update
+raspi-config
+dosfstools
+python
+python-pip
+etherwake
+
+watchdog
+
+usbutils
+libusb-dev #para o termometro usb

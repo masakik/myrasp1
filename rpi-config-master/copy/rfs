@@ -1,0 +1,4 @@
+#!/bin/bash
+mount -o remount,ro /boot
+mount -o remount,ro /
+echo "filesystem in read-only mode"

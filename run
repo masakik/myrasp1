@@ -1,0 +1,30 @@
+#!/bin/bash
+# tem de ajustar as coisas
+exit
+case $1 in
+  backup)
+  echo "do backup"
+  rsync -av --delete /etc/ ./etc
+  rsync -av --delete /root/ ./root
+  rsync -av --delete /boot/*.txt ./boot
+  git commit -am "Backup de hoje"
+
+  ;;
+
+  restore)
+  echo "do restore"
+  ;;
+esac
+
+if [[ -z $1 ]]; then
+
+
+echo "Uso:"
+echo "run backup: Executa o backup"
+echo "run restore: executa o restore"
+echo "run install: instala os programas necessarios usando apt"
+
+fi
+
+echo "Fim."
+

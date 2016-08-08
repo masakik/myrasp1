@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Custom Sectors</title>
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        .container {
+            width : 450 px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .gauge {
+            width: 200px;
+            height: 200px;
+        }
+
+        a:link.button,
+        a:active.button,
+        a:visited.button,
+        a:hover.button {
+            margin: 30px 5px 0 2px;
+            padding: 7px 13px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+    <div id="gg1" class="gauge"></div>
+    <div id="gg2" class="gauge" label="Roof"></div>
+    <div id="gg3" class="gauge" label="Room"></div>
+    <div id="gg4" class="gauge" label="External"></div>
+
+    <p>CPU Temperature: <span id="cpu_temp">0</span>℃</p>
+
+    <p>Datetime: <span id="datetime">0</span></p>
+
+    <p><a href="#" id="gg1_refresh" class="button grey">Random Refresh</a></p>
+</div>
+<div class="result">
+
+</div>
+
+<script src="vendor/justgage-1.2.2/raphael-2.1.4.min.js"></script>
+<script src="vendor/justgage-1.2.2/justgage.js"></script>
+<script src="vendor/jquery-3.0.0.js"></script>
+<script src="js/temperatures.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+#!/bin/bash
+# lista de pcs que podem ser dormidos ou acordados
+# alias, ip, mac_address
+# sala, 192.168.1.20,  
+
+case $1 in
+  sleep)
+  echo "do sleep"
+
+  ;;
+
+  wake)
+  echo "do wakeup"
+  ;;
+esac
+
+if [[ -z $1 ]]; then
+
+
+echo "Uso:"
+echo "remote wake PC"
+echo "remote sleep PC"
+
+fi
+
+echo "Fim."
+

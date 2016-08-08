@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Custom Sectors</title>
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        .container {
+            //width: 450px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .gauge {
+            width: 200px;
+            height: 200px;
+        }
+
+        a:link.button,
+        a:active.button,
+        a:visited.button,
+        a:hover.button {
+            margin: 30px 5px 0 2px;
+            padding: 7px 13px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+    <div id="gg1" class="gauge"></div>
+    <div id="gg2" class="gauge"></div>
+    <div id="gg3" class="gauge"></div>
+    <div id="gg4" class="gauge"></div>
+    <p id="gg1_text">0-50 is green, 51-100 is red</p>
+    <a href="#" id="gg1_refresh" class="button grey">Random Refresh</a>
+    <a href="#" id="gg1_update" class="button grey">Update Sectors</a>
+</div>
+
+<script src="../raphael-2.1.4.min.js"></script>
+<script src="../justgage.js"></script>
+<script src="../justgage.js"></script>
+<script>
+    piscinaSelector = [
+        {
+            color: "lightgrey",
+            lo: 0,
+            hi: 15
+        },
+        {
+            color: "cyan",
+            lo: 15,
+            hi: 22
+        },
+        {
+            color: "#00FF00", //green
+            lo: 22,
+            hi: 30
+        },
+        {
+            color: "yellow",
+            lo: 30,
+            hi: 35
+        },
+        {
+            color: "red",
+            lo: 35,
+            hi: 60
+        }];
+
+    boilerSelector = [
+        {
+            color: "lightgrey",
+            lo: 0,
+            hi: 25
+        },
+        {
+            color: "cyan",
+            lo: 25,
+            hi: 35
+        },
+        {
+            color: "#00FF00", //green
+            lo: 35,
+            hi: 48
+        },
+        {
+            color: "yellow",
+            lo: 48,
+            hi: 55
+        },
+        {
+            color: "red",
+            lo: 55,
+            hi: 60
+        }];
+
+    roomSelector = [
+        {
+            color: "lightgrey",
+            lo: 0,
+            hi: 10
+        },
+        {
+            color: "cyan",
+            lo: 10,
+            hi: 20
+        },
+        {
+            color: "#00FF00", //green
+            lo: 20,
+            hi: 25
+        },
+        {
+            color: "yellow",
+            lo: 25,
+            hi: 32
+        },
+        {
+            color: "red",
+            lo: 32,
+            hi: 50
+        }];
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        var gg1 = new JustGage({
+            title: "Pool",
+            id: "gg1",
+            value: 30.1,
+            min: 0,
+            max: 60,
+            decimals: 1,
+            //gaugeWidthScale: 1,
+            symbol: '℃',
+            pointer: true,
+            pointerOptions: {
+                toplength: -15,
+                bottomlength: 10,
+                bottomwidth: 12,
+                color: '#8e8e93',
+                stroke: '#ffffff',
+                stroke_width: 3,
+                stroke_linecap: 'round'
+            },
+            customSectors: piscinaSelector,
+            hideMinMax: true,
+            counter: true
+        });
+
+
+        var gg2 = new JustGage({
+            title: "Boiler",
+            id: "gg2",
+            value: 45.3,
+            min: 0,
+            max: 60,
+            decimals: 1,
+            //gaugeWidthScale: 1,
+            symbol: '℃',
+            pointer: true,
+            pointerOptions: {
+                toplength: -15,
+                bottomlength: 10,
+                bottomwidth: 12,
+                color: '#8e8e93',
+                stroke: '#ffffff',
+                stroke_width: 3,
+                stroke_linecap: 'round'
+            },
+            customSectors: boilerSelector,
+            hideMinMax: true,
+            counter: true
+        });
+
+        var gg3 = new JustGage({
+            title: "Room",
+            id: "gg3",
+            value: 25,
+            min: 0,
+            max: 50,
+            decimals: 1,
+            //gaugeWidthScale: 1,
+            symbol: '℃',
+            pointer: true,
+            pointerOptions: {
+                toplength: -15,
+                bottomlength: 10,
+                bottomwidth: 12,
+                color: '#8e8e93',
+                stroke: '#ffffff',
+                stroke_width: 3,
+                stroke_linecap: 'round'
+            },
+            customSectors: roomSelector,
+            hideMinMax: true,
+            counter: true
+        });
+
+        var gg4 = new JustGage({
+            title: "External",
+            id: "gg4",
+            value: 25,
+            min: 00,
+            max: 50,
+            decimals: 1,
+            //gaugeWidthScale: 1,
+            symbol: '℃',
+            pointer: true,
+            pointerOptions: {
+                toplength: -15,
+                bottomlength: 10,
+                bottomwidth: 12,
+                color: '#8e8e93',
+                stroke: '#ffffff',
+                stroke_width: 3,
+                stroke_linecap: 'round'
+            },
+            customSectors: roomSelector,
+            hideMinMax: true,
+            counter: true
+        });
+
+        document.getElementById('gg1_refresh').addEventListener('click', function () {
+            gg1.refresh(getRandomInt(0, 40));
+            gg2.refresh(getRandomInt(0, 60));
+            gg3.refresh(getRandomInt(10, 35));
+            gg4.refresh(getRandomInt(10, 35));
+        });
+
+    });
+</script>
+</body>
+</html>

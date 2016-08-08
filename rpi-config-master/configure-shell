@@ -1,0 +1,18 @@
+#!/bin/bash
+if [ $(uname -n) != 'servidor' ]; then
+  echo "Não é servidor! Nada a fazer."
+ # exit 0;
+fi
+source aliases
+
+#source packages
+source bashrc
+source modules
+#source networking
+#source inittab
+# prevent fsck from running
+#tune2fs -c -1 -i 0 /dev/mmcblk0p2 # /
+
+
+
+

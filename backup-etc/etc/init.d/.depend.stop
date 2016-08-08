@@ -1,0 +1,10 @@
+TARGETS = cgmanager fake-hwclock triggerhappy cgproxy alsa-utils urandom sendsigs rsyslog umountnfs.sh hwclock.sh networking umountfs umountroot halt reboot
+sendsigs: alsa-utils triggerhappy
+rsyslog: sendsigs
+umountnfs.sh: alsa-utils rsyslog triggerhappy sendsigs
+hwclock.sh: rsyslog
+networking: umountnfs.sh
+umountfs: hwclock.sh alsa-utils umountnfs.sh networking triggerhappy urandom
+umountroot: fake-hwclock umountfs
+halt: umountroot
+reboot: umountroot

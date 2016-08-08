@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <title>Temperature Gauge Demo</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="vendor/jquery.tempgauge.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            maxTemp = 60;
+            minTemp = 0;
+
+            $(".tempGaugeRed").tempGauge({
+                width: 40,
+                borderWidth: 2,
+                fillColor: "red",
+                showLabel: true,
+                maxTemp: maxTemp,
+                minTemp: minTemp
+            });
+            $(".tempGaugeGreen").tempGauge({
+                width: 40,
+                borderWidth: 2,
+                fillColor: "#00FF00",
+                showLabel: true,
+                maxTemp: maxTemp,
+                minTemp: minTemp
+            });
+            $(".tempGaugeYellow").tempGauge({
+                width: 40,
+                borderWidth: 2,
+                fillColor: "yellow",
+                showLabel: true,
+                maxTemp: maxTemp,
+                minTemp: minTemp
+            });
+            $(".tempGaugeBlue").tempGauge({
+                width: 40,
+                borderWidth: 2,
+                fillColor: "cyan",
+                showLabel: true,
+                maxTemp: maxTemp,
+                minTemp: minTemp
+            });
+            $(".tempGaugeGrey").tempGauge({
+                width: 40,
+                borderWidth: 2,
+                fillColor: "lightgrey",
+                showLabel: true,
+                maxTemp: maxTemp,
+                minTemp: minTemp
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+<div class="boiler">
+    <div>Boiler</div>
+    <div class="tempGauge">35&deg;C</div>
+</div>
+<div>Piscina</div>
+<div class="tempGaugeYellow">30&deg;C</div>
+<div class="tempGaugeGreen">25&deg;C</div>
+<div class="tempGaugeBlue">20&deg;C</div>
+<div class="tempGaugeGrey">15&deg;C</div>
+
+</body>
+</html>

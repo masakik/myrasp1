@@ -1,0 +1,9 @@
+# add console autologin for serial
+echo -n "configure serial port: "
+if grep -q "T0:23:respawn:/sbin/getty --autologin root -L ttyAMA0 115200 vt100" /etc/inittab; then
+  echo "nothing to do"
+else 
+  echo "T0:23:respawn:/sbin/getty --autologin root -L ttyAMA0 115200 vt100" > /etc/inittab
+  echo "done"
+fi
+

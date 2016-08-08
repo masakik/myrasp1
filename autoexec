@@ -1,0 +1,3 @@
+#!/bin/bash
+# colocar programas do autoinicio aqui
+python /root/web/app.py &
