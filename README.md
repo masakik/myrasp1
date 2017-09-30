@@ -12,3 +12,6 @@ libpcap-dev
 fing
 vim
 git
+
+## para webserver
+lighttpd php-fpm mariadb-server
