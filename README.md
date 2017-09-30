@@ -14,4 +14,4 @@ vim
 git
 
 ## para webserver
-lighttpd php-fpm mariadb-server
+lighttpd php-fpm php-mysql mariadb-server 
