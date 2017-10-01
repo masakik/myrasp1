@@ -1,0 +1,4 @@
+#!/bin/bash
+
+fing -o table,html,/var/tmp/network.html
+
