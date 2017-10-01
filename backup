@@ -1,7 +1,0 @@
-#!/bin/bash
-# copia do etc
-rsync -a --delete /etc /root/backup-etc/
-
-#backup de tudo para o masaki-mint
-dest="kawabata@masaki-mint:~/raspberry"
-rsync -a --delete /root $dest

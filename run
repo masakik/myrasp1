@@ -1,12 +1,12 @@
 #!/bin/bash
 # tem de ajustar as coisas
-exit
+#exit
 case $1 in
   backup)
   echo "do backup"
-  rsync -av --delete /etc/ ./etc
-  rsync -av --delete /root/ ./root
-  rsync -av --delete /boot/*.txt ./boot
+  rsync -av --delete /etc/ ./backup/etc
+  #rsync -av --delete /root/ ./backup/root
+  rsync -av --delete /boot/*.txt ./backup/boot
   git commit -am "Backup de hoje"
 
   ;;
