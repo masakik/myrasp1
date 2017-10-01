@@ -5,6 +5,8 @@ case $1 in
   backup)
   echo "do backup"
   rsync -av --delete /etc/ ./backup/etc
+  cp /root/autostart ./backup/root/autostart
+  cp /etc/apache2/sites-enabled/000-default.conf ./backup/apache2/000-default.conf
   #rsync -av --delete /root/ ./backup/root
   rsync -av --delete /boot/*.txt ./backup/boot
   git commit -am "Backup de hoje"
