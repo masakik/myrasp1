@@ -10,6 +10,7 @@ case $1 in
   #rsync -av --delete /root/ ./backup/root
   rsync -av --delete /boot/*.txt ./backup/boot
   git commit -am "Backup de hoje"
+  git push
 
   ;;
 
