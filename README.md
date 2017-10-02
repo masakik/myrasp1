@@ -14,4 +14,9 @@ vim
 git
 
 ## para webserver
-lighttpd php-fpm php-mysql mariadb-server 
+apache2 php php-mysql mariadb-server 
+
+## apache e tmpfs
+tem de ajustar o arquivo /etc/systemd/system/multi-user.target.wants/apache2.service colocando
+
+PrivateTmp=false
