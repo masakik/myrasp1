@@ -20,3 +20,6 @@ apache2 php php-mysql mariadb-server
 tem de ajustar o arquivo /etc/systemd/system/multi-user.target.wants/apache2.service colocando
 
 PrivateTmp=false
+
+## php
+apt install php-xml
